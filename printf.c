@@ -12,20 +12,31 @@ int _printf(const char *format, ...)
 
 	va_list args;
 
-	char c;
-	char *sval;
-	char *str;
+	int i;
+	int val;
+	int index;
+
+	i = 0;
+	val = 0;
+	index = 0;
 
 	va_start(args, format);
 
-	for (str = format; *str; str++)
+	if (format == NULL)
+		return (-1);
+
+	while (format[i])
 	{
-		if (*str != '%')
+		if (format[i] != '%')
 		{
-			putchar(*str);
+			val = write(1, &format[i],1);
+			index = index + val;
+			i++;
 			continue;
 		}
-		switch (*++str)
+		if (format[i] == '%')
+		{
+		switch (format[i])
 		{
 			case 'c':
 				c = va_arg(args, int)
