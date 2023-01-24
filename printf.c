@@ -35,20 +35,6 @@ int _printf(const char *format, ...)
 			continue;
 		}
 		if (format[i] == '%')
-		{
-		switch (format[i])
-		{
-			case 'c':
-				c = va_arg(args, int)
-				printf("%c", c);
-				break;
-			case 's':
-				for (sval = va_arg(args, char *)
-				putchar(*sval);
-				break;
-			default:
-				putchar(*str);
-				break;
 		}
 	}
 	printf("\n");
