@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					write(1, va_arg(chars, char), 1);
+					write(1, &(va_arg(chars, char)), 1);
 					return (++count);
 				case 's':
 					char str = va_arg(chars, char*);
