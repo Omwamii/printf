@@ -60,13 +60,16 @@ int _printf(const char *format, ...)
 					write(1, &(va_arg(input, int)), 4);
 					return (count);
 				case 'd':
-					write(1, &(va_arg(input, int)), 4);
+					write(1, &(va_arg(input, signed int)), 4);
 					return (count);
 				case 'b':
 					int binary = tobinary(va_arg(input, int));
 					write(1, &binary,4);
 					return (count);
-				case '
+				case 'u':
+					int uns = va_arg(input, unsigned int);
+					write(1, &uns, 4);
+					return (count);
 				default:
 					break;
 			}
