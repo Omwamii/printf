@@ -2,6 +2,24 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <stdlib.h>
+/**
+  *countnum - counts number characters printed
+  *@n: number parameter
+  *Return: number of characters printed
+  */
+
+int countnum(int n)
+{
+	int nsave = n;
+	int count = 0;
+
+	while(nsave)
+	{
+		nsave /= 10;
+		count++;
+	}
+	return (count);
+}
 
 /**
   *tobinary - converts a number to binary
@@ -36,6 +54,7 @@ int _printf(const char *format, ...)
 	va_list input;
 	int i = 1;
 	int count = 0;
+	char buffer[1024];
 
 	va_start(input, format);
 	if (format[0] == '%')
@@ -57,19 +76,33 @@ int _printf(const char *format, ...)
 					}
 					return (count);
 				case 'i':
-					write(1, &(va_arg(input, int)), 4);
-					return (count);
+					int deci = va_arg(input, int);
+					write(1, &deci, 4);
+					return (countnum(deci));
 				case 'd':
-					write(1, &(va_arg(input, signed int)), 4);
-					return (count);
+					signed int dec = va_arg(input, signed int);
+					write(1, &dec, 4);
+					return (countnum(dec));
 				case 'b':
 					int binary = tobinary(va_arg(input, int));
 					write(1, &binary,4);
-					return (count);
+					return (countnum(binary));
 				case 'u':
-					int uns = va_arg(input, unsigned int);
+					unsigned int uns = va_arg(input, unsigned int);
 					write(1, &uns, 4);
-					return (count);
+					return (countnum(uns));
+				case 'x':
+					unsigned int hex = va_arg(input, unsigned int);
+					write(1, &hex, 4);
+					return (countnum(hex));
+				case 'o':
+					unsigned int oct = va_arg(input, unsigned int);
+					write(1, &oct, 4);
+					return (countnum(oct));
+				case 'X':
+					unsigned int hexa = va_arg(input, unsigned int);
+					write(1, &hexa, 4);
+					return (countnum(hexa));
 				default:
 					break;
 			}
