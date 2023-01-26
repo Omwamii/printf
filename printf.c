@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
 				return (++count);
 			case 's':
 				str = va_arg(input, char*);
-				while(str[count] != '\0')
+				while (str[count] != '\0')
 				{
 					write(1, &str[count], 1);
 					count++;
