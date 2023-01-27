@@ -72,9 +72,9 @@ int _printf(const char *format, ...)
 
 int main(void)
 {
-	int c = -2;
+	signed int c = -21;
 
-	_printf("%d\n",c);
+	_printf("%d\n", c);
 	_printf("The teacher said %i should see him today\n", c);
 
 	return (0);
