@@ -7,12 +7,5 @@
 */
 int _cent(va_list args)
 {
-	char *ch;
-
-	ch = "%";
-	if (va_arg(args, int) == *ch)
-	{
-		return (*ch);
-	}
-	return (*ch);
+	_putchar('%');
 }

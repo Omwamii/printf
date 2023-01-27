@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 {
 	int i;
 	int val;
-	int (*f)(va_list) = NULL;
+	int (*f)(va_list);
 	va_list args;
 
 	i = 0;
