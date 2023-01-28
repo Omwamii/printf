@@ -7,7 +7,7 @@
 
 int print_char(va_list ch)
 {
-	char c = va_arg(ch, char);
+	char c = (char)va_arg(ch, int);
 	int count = 0;
 
 	if (c)

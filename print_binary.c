@@ -10,10 +10,21 @@
 int print_binary(va_list input)
 {
 	int num = va_arg(input, unsigned int);
+	int *binary, i = 0;
 
 	if (num)
 	{
-		tobinary(
+		binary = tobinary(num);
+
+		while(binary[i] != '\0')
+		{
+			write(1, &binary[i], 1);
+			i++;
+		}
+
+		return (i);
 	}
+
+	return (NULL);
 }
 

@@ -33,8 +33,8 @@ typedef struct func
 	int (*f)(va_list);
 } func_t;
 
-int _cent(va_list);
-int _char(va_list);
-int _str(va_list);
+int print_percent(va_list);
+int print_char(va_list);
+int print_str(va_list);
 int *tobinary(int dec);
 #endif

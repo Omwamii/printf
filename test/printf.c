@@ -1,91 +1,84 @@
-#include <stdio.h>
-#include <stddef.h>
 #include "main.h"
-#include <stdlib.h>
-#include <stdarg.h>
+
 /**
-*_printf - produce output according to format
-*@format: string to be output
-*Return: number of characters that are printed out
-*/
+  *_printf - prints out any type of input
+  *@format: format specified for input
+  *
+  *Return: characters printed
+  */
 int _printf(const char *format, ...)
 {
-	int i;
-	int val;
-	int (*f)(va_list);
-	va_list args;
+	va_list input;
+	int i = 0, count = 0; val;
+	char newline = '\n', ch, *str;
+	signed int dec, deci;
+	unsigned int binary;
 
-<<<<<<< HEAD
 	va_start(input, format);
+
+	if (format == NULL)
+		return (-1);
 
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-=======
-	i = 0;
-	va_start(args, format);
-	if (format[0] == '%' && format[1] == '%')
-			return (-1);
-	while (format != NULL && format[i] != '\0')
-	{
-		if (format[i] != '%')
-		{
-			if (format[i + 1]  == '%')
-			{
-				val = val + _putchar(format[i + 1]);
-				i += 2;
-			}
-			else
-			{
-				f = check_specifier(format[i + 1]);
-				if (f)
-				{
-					val += f(args);
-				}
-				else
-				{
-					val = _putchar(format[i]) + _putchar(format[i + 1]);
-					i = i + 2;
-				}
-			}
-		}
-		else
-		{
-			val += _putchar(format[i]);
->>>>>>> 5583835c81fa47e039bd11b5c6b1f6a07e2cf19d
 			i++;
 			switch (format[i])
 			{
 				case 'c':
 					ch = va_arg(input, int);
-
 					write(1, &ch, 1);
 					count = 1;
 					break;
 				case 's':
-					str = va_arg(input, char*);
+				str = va_arg(input, char*);
 
-					while (str[count] != '\0')
+				while (str[count] != '\0')
 					{
 						write(1, &str[count], 1);
 						count++;
 					}
 					break;
-				default:
+				case '\n':
+					write(1, &newline, 1);
 					break;
-			}
+				case 'i':
+					dec = va_arg(input, signed int);
+					write(1, &dec, sizeof(dec));
+					break;
+				case 'd':
+					deci = va_arg(input, signed int);
+					write(1, &deci, sizeof(deci));
+					break;
+				case 'b':
+					binary = va_arg(input, unsigned int);
+					dec = tobinar
+			i++;
 		}
-<<<<<<< HEAD
 
-		write(1, &format[i], 1);
-		i++;
+		else
+		{
+			val = write(1, &format[i], 1);
+			count += val;
+			i++;
+		}
 	}
 	va_end(input);
 	return (count);
-=======
-	}
-	va_end(args);
-	return (val);
->>>>>>> 5583835c81fa47e039bd11b5c6b1f6a07e2cf19d
+}
+
+/**
+  *main - entry point check
+  */
+
+int main(void)
+{
+	signed int c = -20;
+	unsigned int b = 8;
+
+	_printf("%b\n", b);
+	_printf("The teacher said %i should see him today\n", c);
+
+	return (0);
 }
