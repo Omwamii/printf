@@ -2,14 +2,13 @@
 
 /**
   *tobinary - converts number to binary
-  *@input: variadic parameter passed
+  *@dec: variadic parameter passed
   *
   *Return: array of integers
   */
-int *tobinary(va_list input)
+int *tobinary(unsigned int dec)
 {
-	unsigned int in = va_arg(input, unsigned int);
-	int *bin, i = 0; num = in;
+	int *bin, i = 0; num = dec;
 
 	while (num > 0)
 	{

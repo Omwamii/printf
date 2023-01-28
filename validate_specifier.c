@@ -14,10 +14,13 @@ int *(check_specifier(char *format))(va_list)
 {
 	int i;
 
-	funct_t handlers[4] = {
+	funct_t handlers[7] = {
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_percent},
+		{'b', print_binary},
+		{'i', print_digit},
+		{'d', print_digit},
 		{'\n', print_newline},
 		{NULL, NULL}
 	};
