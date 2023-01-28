@@ -1,7 +1,5 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
+
 /**
   *tobinary - converts decimal to binary
   *@dec: decimal number
