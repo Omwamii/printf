@@ -25,7 +25,8 @@ int _printf(const char *format, ...)
 			f = check_specifier(format);
 			if (*(format) == '\0')
 				return (-1);
-			else if (f == NULL)
+
+			 if (f == NULL)
 			{
 				_putchar(*(format - 1));
 				_putchar(*(format));
