@@ -1,40 +1,25 @@
 #include "main.h"
 
 /**
-  *check_specifier - checks specifier used and
-  *assigns a handling func
-  *@format: specifier string
-  *
-  *Return: ptr to the handling function or NULL if absent
-  */
-
-int (*check_specifier(const char *format))(va_list)
+*check_specifier - check format specifier type to be printed
+*@fmt: string to be printed
+*@va_list:
+*Return: format specifier
+*
+*/
+int (*check_specifier(const char *fmt))(va_list)
 {
-	int i;
+	int index;
 
-	func_t handlers[8] = {
-		{'c', print_char},
-		{'s', print_str},
-		{'%', print_percent},
-		{'b', print_binary},
-		{'i', print_signed},
-		{'d', print_signed},
-		{'u', print_unsigned},
-		{'x', print_hexa},
-		{'X', print_hexa_upper},
-		{'o', print_octal},
-		{'\n', print_line}
+	func_t spec[] = {
+		{"c", p_char},
+		{"s", p_str},
+		{NULL, NULL}
 	};
-
-	while (handlers[i].t)
+	for (index = 0; spec[index].t; index++)
 	{
-		if (handlers[i].t == *format)
-		{
-			return (handlers[i].f);
-		}
-
-		i++;
+		if (*fmt == spec[index].t[0])
+			return (spec[index].f);
 	}
-
 	return (NULL);
 }
