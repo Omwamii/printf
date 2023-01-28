@@ -14,20 +14,14 @@
 
 typedef struct func
 {
-	char t;
+	char *t;
 	int (*f)(va_list);
 } func_t;
 
 int _putchar(char);
 int _printf(const char *format, ...);
-int (*check_specifier(const char *format))(va_list);
-int print_percent(va_list);
-int print_char(va_list);
-int print_str(va_list);
-int *tobinary(unsigned int dec);
-int countnum(int num);
-int print_signed(va_list);
-char *tostring(int num, char *str);
-int print_line(va_list args);
-int print_binary(va_list input);
+int (*check_specifier(const char *fmt))(va_list);
+int p_cent(va_list args);
+int p_char(va_list args);
+int p_str(va_list args);
 #endif
