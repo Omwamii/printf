@@ -36,4 +36,5 @@ typedef struct func
 int _cent(va_list);
 int _char(va_list);
 int _str(va_list);
+int *tobinary(int dec);
 #endif
