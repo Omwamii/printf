@@ -1,45 +1,5 @@
 #include "main.h"
-/**
-  *to_octal - convert decimal to octal
-  *@num: decimal number to convert
-  *
-  *Return: octal equivalent
-  */
 
-int *to_octal(int num)
-{
-	int deci = num, i = 0, temp, j = 0;
-	int *octal;
-
-	while (deci > 0)
-	{
-		octal = malloc(sizeof(int));
-		octal[i] = (num % 8);
-		deci /= 8;
-		i++;
-		octal++; /* possible issue: this may end up passing last index */
-	}
-	j = i - 1;
-	i = 0;
-
-	while (j > i)
-	{
-		temp = octal[i];
-		octal[i] = octal[j];
-		octal[j] = temp;
-		i++;
-		j--;
-	}
-
-	while (i > 0)
-	{
-		octal--;
-		i--;
-	}
-
-
-	return (octal);
-}
 /**
   *print_octal - prints octal number
   *@input: variadic parameters
@@ -50,20 +10,22 @@ int *to_octal(int num)
 int print_octal(va_list input)
 {
 	int deci = va_arg(input, int);
-	int *oct, written = 0, i = 0;
+	char octal[(sizeof(int) * 4) + 1];
+	int i = 0, j = 0, rem;
 
-	if (deci > 7)
+	while (deci > 0)
 	{
-		oct = to_octal(deci);
-
-		while (oct[i] != '\0')
-		{
-			written += write(1, &oct[i], 1);
-			i++;
-		}
-		return (written);
+		rem = deci % 8;
+		octal[i] = rem + '0';
+		deci /= 8;
+		i++;
 	}
+	octal[i] = '\0';
 
-	return (write(1, &deci, 1));
+	for (j = i - 1; j >= 0; j--)
+	{
+		write(1, &octal[j], 1);
+	}
+	return (i);
 
 }
