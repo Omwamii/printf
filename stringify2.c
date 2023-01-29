@@ -8,7 +8,7 @@
   *Return: ptr to str
   */
 
-char *tostring2(unsigned int digit, char *str)
+char *tostring2(unsigned long digit, char *str)
 {
 	int i = 0, j;
 	char temp;

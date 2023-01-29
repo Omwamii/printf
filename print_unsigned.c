@@ -9,8 +9,8 @@
 
 int print_unsigned(va_list input)
 {
-	unsigned int digit = va_arg(input, unsigned int);
-	char digits[32];
+	unsigned long digit = va_arg(input, unsigned long);
+	char digits[50];
 	int i = 0;
 
 	tostring2(digit, digits);

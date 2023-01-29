@@ -9,7 +9,7 @@
 
 int print_signed(va_list input)
 {
-	signed int digit = va_arg(input, signed int);
+	signed long digit = va_arg(input, signed long);
 	char digits[32];
 	int i = 0;
 
