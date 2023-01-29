@@ -1,8 +1,5 @@
-#include <stdio.h>
-#include <stddef.h>
 #include "main.h"
-#include <stdlib.h>
-#include <stdarg.h>
+
 /**
 *_printf - produce output according to format
 *@format: string to be output
@@ -50,5 +47,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(args), return (count);
+	va_end(args);
+	return (count);
 }
