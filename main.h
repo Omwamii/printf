@@ -1,11 +1,12 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
 #include <stddef.h>
-
+#define BUFF_SIZE 1024
 /**
 *struct func - struct to print specifier
 *@t: character to compare
@@ -17,6 +18,7 @@ typedef struct func
 	char *t;
 	int (*f)(va_list);
 } func_t;
+
 
 int _putchar(char);
 int _printf(const char *format, ...);

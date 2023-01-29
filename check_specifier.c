@@ -21,7 +21,7 @@ int (*check_specifier(const char *fmt))(va_list)
 		{"o", print_octal},
 		{"X", print_hexa_upper},
 		{"u", print_unsigned},
-		{NULL, NULL}
+		{"\0", NULL}
 	};
 	for (index = 0; spec[index].t; index++)
 	{

@@ -11,6 +11,8 @@ int _printf(const char *format, ...)
 	int count;
 	int (*f)(va_list) = NULL;
 	va_list args;
+	char buffer[BUFF_SIZE];
+	int index = 0;
 
 	count = 0;
 	va_start(args, format);
@@ -46,6 +48,22 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
+
+	print_buffer(buffer, &index);
 	va_end(args);
 	return (count);
+}
+
+/**
+  *print_buffer - prints the buffer
+  *@buffer: array of characters
+  *@index: buffer index
+  */
+
+void print_buffer(char buffer[], int *index)
+{
+	if (*index > 0)
+		write(1, buffer, *index);
+
+	*index = 0;
 }
