@@ -28,5 +28,5 @@ int countnum(int num);
 char *tostring(int num, char *str);
 int print_binary(va_list input);
 int print_signed(va_list input);
-int print_octal(int num);
+int print_octal(va_list input);
 #endif

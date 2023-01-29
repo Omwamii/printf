@@ -6,7 +6,7 @@
   *Return: octal equivalent
   */
 
-int to_octal(int num)
+int *to_octal(int num)
 {
 	int deci = num, i = 0, temp, j = 0;
 	int *octal;
@@ -29,6 +29,12 @@ int to_octal(int num)
 		octal[j] = temp;
 		i++;
 		j--;
+	}
+
+	while (i > 0)
+	{
+		octal--;
+		i--;
 	}
 
 
