@@ -9,22 +9,39 @@
 
 int print_binary(va_list input)
 {
-	int num = va_arg(input, unsigned int);
-	int *binary, i = 0;
+	signed int num = va_arg(input, signed int);
+	char binary[32], temp;
+	int i = 0, j = 0, val = 0;
 
-	if (num)
+	if (num < 0)
 	{
-		binary = tobinary(num);
+		num = ~num + 1;
+	}
+	if (num == 0)
+	{
+		binary[i] = '0';
+		write(1, binary, 1);
+		return (1);
+	}
+	while (num > 0)
+	{
+		binary[i] = (num % 2) + '0';
+		num /= 2;
+		i++;
+	}
+	val = i;
+	j = i - 1;
+	i = 0;
 
-		while (binary[i] != '\0')
-		{
-			write(1, &binary[i], 1);
-			i++;
-		}
-
-		return (i);
+	while (j > i)
+	{
+		temp = binary[i];
+		binary[i] = binary[j];
+		binary[j] = temp;
+		i++;
+		j--;
 	}
 
-	return (-1);
+	return (write(1, binary, val));
 }
 

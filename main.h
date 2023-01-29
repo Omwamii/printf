@@ -23,7 +23,6 @@ int _printf(const char *format, ...);
 int (*check_specifier(const char *fmt))(va_list);
 int p_char(va_list args);
 int p_str(va_list args);
-int *tobinary(unsigned int dec);
 int countnum(int num);
 char *tostring(int num, char *str);
 int print_binary(va_list input);

@@ -10,3 +10,4 @@ print_unsigned.c
 tobinary.c
 tostring.c
 main.c
+a.out
