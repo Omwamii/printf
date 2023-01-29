@@ -13,13 +13,7 @@ int print_unsigned(va_list input)
 	char digits[32];
 	int i = 0;
 
-	if (digit == 0)
-	{
-		digits[0] = '0';
-		return (_putchar(digits[i]));
-	}
-
-	tostring(digit, digits);
+	tostring2(digit, digits);
 
 	while (digits[i] != '\0')
 	{

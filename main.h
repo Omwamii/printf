@@ -31,4 +31,5 @@ int print_hexa(va_list input);
 int print_hexa_upper(va_list input);
 int print_unsigned(va_list input);
 char *tostring(int num, char *str);
+char *tostring2(unsigned int digit, char *str);
 #endif
