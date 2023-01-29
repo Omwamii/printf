@@ -16,4 +16,5 @@ int print_line(va_list args)
 		write(1, &n, 1);
 		return (1);
 	}
+	return (-1);
 }
