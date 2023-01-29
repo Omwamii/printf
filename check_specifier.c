@@ -14,6 +14,9 @@ int (*check_specifier(const char *fmt))(va_list)
 	func_t spec[] = {
 		{"c", p_char},
 		{"s", p_str},
+		{"d", print_signed},
+		{"i", print_signed},
+		{"b", print_binary},
 		{NULL, NULL}
 	};
 	for (index = 0; spec[index].t; index++)
