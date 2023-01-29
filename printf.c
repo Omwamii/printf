@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 			if (*(format) == '\0')
 				return (-1);
 
-			 if (f == NULL)
+			if (f == NULL)
 			{
 				_putchar(*(format - 1));
 				_putchar(*(format));
@@ -50,6 +50,5 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(args);
-	return (count);
+	va_end(args), return (count);
 }

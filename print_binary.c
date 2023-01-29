@@ -16,7 +16,7 @@ int print_binary(va_list input)
 	{
 		binary = tobinary(num);
 
-		while(binary[i] != '\0')
+		while (binary[i] != '\0')
 		{
 			write(1, &binary[i], 1);
 			i++;

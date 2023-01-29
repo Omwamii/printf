@@ -64,6 +64,6 @@ int print_octal(va_list input)
 		return (written);
 	}
 
-	return (write (1, &deci, 1));
+	return (write(1, &deci, 1));
 
 }

@@ -2,7 +2,7 @@
 
 /**
   *print_line - prints newline
-  *args: variadic parameter
+  *@args: a variadic parameter
   *
   *Return: 0 if success
   */

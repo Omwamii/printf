@@ -15,7 +15,7 @@ int print_signed(va_list input)
 
 	if (digits)
 	{
-		 tostring(digit, digits);
+		tostring(digit, digits);
 
 		while (digits[i] != '\0')
 		{
