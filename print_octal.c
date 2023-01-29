@@ -9,7 +9,7 @@
 
 int print_octal(va_list input)
 {
-	int deci = va_arg(input, int);
+	unsigned int deci = va_arg(input, unsigned int);
 	char octal[(sizeof(int) * 4) + 1];
 	int i = 0, j = 0, rem;
 
@@ -20,7 +20,6 @@ int print_octal(va_list input)
 		deci /= 8;
 		i++;
 	}
-	octal[i] = '\0';
 
 	for (j = i - 1; j >= 0; j--)
 	{

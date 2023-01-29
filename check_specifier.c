@@ -19,6 +19,8 @@ int (*check_specifier(const char *fmt))(va_list)
 		{"b", print_binary},
 		{"x", print_hexa},
 		{"o", print_octal},
+		{"X", print_hexa_upper},
+		{"u", print_unsigned},
 		{NULL, NULL}
 	};
 	for (index = 0; spec[index].t; index++)

@@ -29,4 +29,6 @@ int print_binary(va_list input);
 int print_signed(va_list input);
 int print_octal(va_list input);
 int print_hexa(va_list input);
+int print_hexa_upper(va_list input);
+int print_unsigned(va_list input);
 #endif

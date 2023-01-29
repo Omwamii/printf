@@ -10,10 +10,16 @@
 int print_signed(va_list input)
 {
 	signed int digit = va_arg(input, signed int);
-	char *digits = malloc(sizeof(countnum(digit)));
+	char digits[32];
 	int i = 0;
 
-	if (digits)
+	if (digit == 0)
+	{
+		digits[0] = '0';
+		write(1, &digits[0], 1);
+		return (1);
+	}
+	if (digit != 0)
 	{
 		tostring(digit, digits);
 
