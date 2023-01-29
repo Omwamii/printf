@@ -9,13 +9,14 @@
 
 int print_binary(va_list input)
 {
-	signed int num = va_arg(input, signed int);
+	signed long num = va_arg(input, signed int);
 	char binary[32], temp;
 	int i = 0, j = 0, val = 0;
 
 	if (num < 0)
 	{
-		num = ~num + 1;
+		for (i = 0; i < 32; i++)
+			binary[i] = (num & (1 << i)) ? '1' : '0';
 	}
 	if (num == 0)
 	{
