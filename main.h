@@ -24,11 +24,11 @@ int (*check_specifier(const char *fmt))(va_list);
 int p_char(va_list args);
 int p_str(va_list args);
 int countnum(int num);
-char *tostring(int num, char *str);
 int print_binary(va_list input);
 int print_signed(va_list input);
 int print_octal(va_list input);
 int print_hexa(va_list input);
 int print_hexa_upper(va_list input);
 int print_unsigned(va_list input);
+char *tostring(int num, char *str);
 #endif

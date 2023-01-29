@@ -16,21 +16,18 @@ int print_signed(va_list input)
 	if (digit == 0)
 	{
 		digits[0] = '0';
-		write(1, &digits[0], 1);
+		_putchar(digits[0]);
 		return (1);
 	}
-	if (digit != 0)
+
+	tostring(digit, digits);
+
+	while (digits[i] != '\0')
 	{
-		tostring(digit, digits);
-
-		while (digits[i] != '\0')
-		{
-			write(1, &digits[i], 1);
-			i++;
-		}
-
-		return (i);
+		_putchar(digits[i]);
+		i++;
 	}
 
-	return (0);
+	return (i);
+
 }
